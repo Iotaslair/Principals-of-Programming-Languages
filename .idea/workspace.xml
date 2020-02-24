@@ -2,11 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7646a8fa-facf-4ea9-b4a8-3194a22ac48c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Principals-of-Programming-Languages.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Principals-of-Programming-Languages.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/company/boolean.interp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/company/booleanLexer.interp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/company/booleanLexer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/company/booleanLexer.tokens" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/boolean.g4" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/boolang.g4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/gen/Hello.interp" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/hellogen/Hello.interp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/gen/Hello.tokens" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/hellogen/Hello.tokens" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/gen/HelloBaseListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/hellogen/HelloBaseListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/gen/HelloBaseVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/hellogen/HelloBaseVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/gen/HelloLexer.interp" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/hellogen/HelloLexer.interp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/gen/HelloLexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/hellogen/HelloLexer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/gen/HelloLexer.tokens" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/hellogen/HelloLexer.tokens" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/gen/HelloListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/hellogen/HelloListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/gen/HelloParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/hellogen/HelloParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/gen/HelloVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/hellogen/HelloVisitor.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +35,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="add_unversioned_files" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../antlr-4.8-complete.jar!/" />
     <property name="project.structure.last.edited" value="Libraries" />
@@ -61,9 +74,9 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="249" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1582308687679" />
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1582308723116">
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1582492100837">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1582308723116" />
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1582492100837" />
   </component>
 </project>

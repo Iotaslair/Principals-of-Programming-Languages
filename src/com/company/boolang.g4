@@ -1,4 +1,4 @@
-grammar boolean;
+grammar boolang;
 expr : val | or | and | not;
 val : FALSE | TRUE;
 FALSE : OPENPAREN* 'false' CLOSEPAREN*;

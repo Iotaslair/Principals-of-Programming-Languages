@@ -1,4 +1,4 @@
-package com.company.gen;// Generated from C:/Users/billy/POPL/AntlrTesting/src\Hello.g4 by ANTLR 4.8
+package com.company.hellogen;// Generated from C:/Users/billy/POPL/AntlrTesting/src\Hello.g4 by ANTLR 4.8
 import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
 
 /**

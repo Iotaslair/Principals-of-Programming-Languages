@@ -1,7 +1,7 @@
 package com.company;
 
-import com.company.gen.HelloLexer;
-import com.company.gen.HelloParser;
+import com.company.hellogen.HelloLexer;
+import com.company.hellogen.HelloParser;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
