@@ -6,19 +6,18 @@ import com.company.gen.BoolangParser;
 public class BoolangVisitorReal<Boolean> extends BoolangBaseVisitor<java.lang.Boolean> {
     @Override
     public java.lang.Boolean visitExpr(BoolangParser.ExprContext ctx) {
-        if (ctx.or() != null) {
-            return visitOr(ctx.or());
-        }
-        if (ctx.not() != null) {
-            return !visitNot(ctx.not());
-        }
-        if(ctx.and() != null){
-            return visitAnd(ctx.and());
-        }
-        if (ctx.val() != null) {
-            return visitVal(ctx.val());
-        }
-
+//        if (ctx.or() != null) {
+//            return visitOr(ctx.or());
+//        }
+//        if (ctx.not() != null) {
+//            return !visitNot(ctx.not());
+//        }
+//        if(ctx.and() != null){
+//            return visitAnd(ctx.and());
+//        }
+//        if (ctx.val() != null) {
+//            return visitVal(ctx.val());
+//        }
         return visitChildren(ctx);
     }
 
@@ -29,7 +28,6 @@ public class BoolangVisitorReal<Boolean> extends BoolangBaseVisitor<java.lang.Bo
         } else if (ctx.leftexpr != null) {
             return visitExpr(ctx.leftexpr) && visitExpr(ctx.rightexpr);
         }
-
         return visitChildren(ctx);
     }
 
