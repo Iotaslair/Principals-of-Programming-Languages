@@ -1,4 +1,4 @@
-// Generated from C:/Users/billy/POPL/Principals-of-Programming-Languages/src/com/company\boolang.g4 by ANTLR 4.8
+// Generated from C:/Users/billy/POPL/Principals-of-Programming-Languages/src/com/company\Boolang.g4 by ANTLR 4.8
 package com.company.gen;
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;
@@ -10,7 +10,7 @@ import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.misc.*;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
-public class boolangLexer extends Lexer {
+public class BoolangLexer extends Lexer {
 	static { RuntimeMetaData.checkVersion("4.8", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
@@ -79,13 +79,13 @@ public class boolangLexer extends Lexer {
 	}
 
 
-	public boolangLexer(CharStream input) {
+	public BoolangLexer(CharStream input) {
 		super(input);
 		_interp = new LexerATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
 
 	@Override
-	public String getGrammarFileName() { return "boolang.g4"; }
+	public String getGrammarFileName() { return "Boolang.g4"; }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }

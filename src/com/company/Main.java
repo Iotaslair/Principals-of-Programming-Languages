@@ -1,5 +1,7 @@
 package com.company;
 
+import com.company.gen.BoolangLexer;
+import com.company.gen.boolangLexer;
 import com.company.hellogen.HelloLexer;
 import com.company.hellogen.HelloParser;
 import org.antlr.v4.runtime.CharStreams;
@@ -10,10 +12,13 @@ public class Main {
 
     public static void main(String[] args) {
 	// write your code here
-        HelloLexer lexer = new HelloLexer(CharStreams.fromString("Hallo John!"));
-        HelloParser parser = new HelloParser(new CommonTokenStream(lexer));
-        //r is the root rule so that's the name of the method
-        ParseTree tree = parser.r();
+        BoolangLexer 
+
+
+//        HelloLexer lexer = new HelloLexer(CharStreams.fromString("Hallo John!"));
+//        HelloParser parser = new HelloParser(new CommonTokenStream(lexer));
+//        //r is the root rule so that's the name of the method
+//        ParseTree tree = parser.r();
 
     }
 }

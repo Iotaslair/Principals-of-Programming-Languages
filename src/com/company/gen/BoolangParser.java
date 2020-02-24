@@ -1,4 +1,4 @@
-// Generated from C:/Users/billy/POPL/Principals-of-Programming-Languages/src/com/company\boolang.g4 by ANTLR 4.8
+// Generated from C:/Users/billy/POPL/Principals-of-Programming-Languages/src/com/company\Boolang.g4 by ANTLR 4.8
 package com.company.gen;
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
@@ -7,7 +7,7 @@ import org.antlr.v4.runtime.tree.*;
 import java.util.List;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
-public class boolangParser extends Parser {
+public class BoolangParser extends Parser {
 	static { RuntimeMetaData.checkVersion("4.8", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
@@ -70,7 +70,7 @@ public class boolangParser extends Parser {
 	}
 
 	@Override
-	public String getGrammarFileName() { return "boolang.g4"; }
+	public String getGrammarFileName() { return "Boolang.g4"; }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }
@@ -81,7 +81,7 @@ public class boolangParser extends Parser {
 	@Override
 	public ATN getATN() { return _ATN; }
 
-	public boolangParser(TokenStream input) {
+	public BoolangParser(TokenStream input) {
 		super(input);
 		_interp = new ParserATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
@@ -105,15 +105,15 @@ public class boolangParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_expr; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof boolangListener ) ((boolangListener)listener).enterExpr(this);
+			if ( listener instanceof BoolangListener ) ((BoolangListener)listener).enterExpr(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof boolangListener ) ((boolangListener)listener).exitExpr(this);
+			if ( listener instanceof BoolangListener ) ((BoolangListener)listener).exitExpr(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof boolangVisitor ) return ((boolangVisitor<? extends T>)visitor).visitExpr(this);
+			if ( visitor instanceof BoolangVisitor ) return ((BoolangVisitor<? extends T>)visitor).visitExpr(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -167,23 +167,23 @@ public class boolangParser extends Parser {
 	}
 
 	public static class ValContext extends ParserRuleContext {
-		public TerminalNode FALSE() { return getToken(boolangParser.FALSE, 0); }
-		public TerminalNode TRUE() { return getToken(boolangParser.TRUE, 0); }
+		public TerminalNode FALSE() { return getToken(BoolangParser.FALSE, 0); }
+		public TerminalNode TRUE() { return getToken(BoolangParser.TRUE, 0); }
 		public ValContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_val; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof boolangListener ) ((boolangListener)listener).enterVal(this);
+			if ( listener instanceof BoolangListener ) ((BoolangListener)listener).enterVal(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof boolangListener ) ((boolangListener)listener).exitVal(this);
+			if ( listener instanceof BoolangListener ) ((BoolangListener)listener).exitVal(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof boolangVisitor ) return ((boolangVisitor<? extends T>)visitor).visitVal(this);
+			if ( visitor instanceof BoolangVisitor ) return ((BoolangVisitor<? extends T>)visitor).visitVal(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -219,14 +219,14 @@ public class boolangParser extends Parser {
 	}
 
 	public static class OrContext extends ParserRuleContext {
-		public TerminalNode OPENPAREN() { return getToken(boolangParser.OPENPAREN, 0); }
+		public TerminalNode OPENPAREN() { return getToken(BoolangParser.OPENPAREN, 0); }
 		public List<ExprContext> expr() {
 			return getRuleContexts(ExprContext.class);
 		}
 		public ExprContext expr(int i) {
 			return getRuleContext(ExprContext.class,i);
 		}
-		public TerminalNode CLOSEPAREN() { return getToken(boolangParser.CLOSEPAREN, 0); }
+		public TerminalNode CLOSEPAREN() { return getToken(BoolangParser.CLOSEPAREN, 0); }
 		public ValContext val() {
 			return getRuleContext(ValContext.class,0);
 		}
@@ -236,15 +236,15 @@ public class boolangParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_or; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof boolangListener ) ((boolangListener)listener).enterOr(this);
+			if ( listener instanceof BoolangListener ) ((BoolangListener)listener).enterOr(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof boolangListener ) ((boolangListener)listener).exitOr(this);
+			if ( listener instanceof BoolangListener ) ((BoolangListener)listener).exitOr(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof boolangVisitor ) return ((boolangVisitor<? extends T>)visitor).visitOr(this);
+			if ( visitor instanceof BoolangVisitor ) return ((BoolangVisitor<? extends T>)visitor).visitOr(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -310,13 +310,13 @@ public class boolangParser extends Parser {
 		public ExprContext expr() {
 			return getRuleContext(ExprContext.class,0);
 		}
-		public List<TerminalNode> OPENPAREN() { return getTokens(boolangParser.OPENPAREN); }
+		public List<TerminalNode> OPENPAREN() { return getTokens(BoolangParser.OPENPAREN); }
 		public TerminalNode OPENPAREN(int i) {
-			return getToken(boolangParser.OPENPAREN, i);
+			return getToken(BoolangParser.OPENPAREN, i);
 		}
-		public List<TerminalNode> CLOSEPAREN() { return getTokens(boolangParser.CLOSEPAREN); }
+		public List<TerminalNode> CLOSEPAREN() { return getTokens(BoolangParser.CLOSEPAREN); }
 		public TerminalNode CLOSEPAREN(int i) {
-			return getToken(boolangParser.CLOSEPAREN, i);
+			return getToken(BoolangParser.CLOSEPAREN, i);
 		}
 		public AndContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -324,15 +324,15 @@ public class boolangParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_and; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof boolangListener ) ((boolangListener)listener).enterAnd(this);
+			if ( listener instanceof BoolangListener ) ((BoolangListener)listener).enterAnd(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof boolangListener ) ((boolangListener)listener).exitAnd(this);
+			if ( listener instanceof BoolangListener ) ((BoolangListener)listener).exitAnd(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof boolangVisitor ) return ((boolangVisitor<? extends T>)visitor).visitAnd(this);
+			if ( visitor instanceof BoolangVisitor ) return ((BoolangVisitor<? extends T>)visitor).visitAnd(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -398,13 +398,13 @@ public class boolangParser extends Parser {
 		public ExprContext expr() {
 			return getRuleContext(ExprContext.class,0);
 		}
-		public List<TerminalNode> OPENPAREN() { return getTokens(boolangParser.OPENPAREN); }
+		public List<TerminalNode> OPENPAREN() { return getTokens(BoolangParser.OPENPAREN); }
 		public TerminalNode OPENPAREN(int i) {
-			return getToken(boolangParser.OPENPAREN, i);
+			return getToken(BoolangParser.OPENPAREN, i);
 		}
-		public List<TerminalNode> CLOSEPAREN() { return getTokens(boolangParser.CLOSEPAREN); }
+		public List<TerminalNode> CLOSEPAREN() { return getTokens(BoolangParser.CLOSEPAREN); }
 		public TerminalNode CLOSEPAREN(int i) {
-			return getToken(boolangParser.CLOSEPAREN, i);
+			return getToken(BoolangParser.CLOSEPAREN, i);
 		}
 		public NotContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -412,15 +412,15 @@ public class boolangParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_not; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof boolangListener ) ((boolangListener)listener).enterNot(this);
+			if ( listener instanceof BoolangListener ) ((BoolangListener)listener).enterNot(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof boolangListener ) ((boolangListener)listener).exitNot(this);
+			if ( listener instanceof BoolangListener ) ((BoolangListener)listener).exitNot(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof boolangVisitor ) return ((boolangVisitor<? extends T>)visitor).visitNot(this);
+			if ( visitor instanceof BoolangVisitor ) return ((BoolangVisitor<? extends T>)visitor).visitNot(this);
 			else return visitor.visitChildren(this);
 		}
 	}
