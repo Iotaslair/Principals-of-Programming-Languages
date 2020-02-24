@@ -26,7 +26,7 @@ public class BoolangParser extends Parser {
 
 	private static String[] makeLiteralNames() {
 		return new String[] {
-			null, "'or'", "'and'", "'not'", null, null, null, "'('", "')'"
+			null, "'or'", "'and'", "'not'", "'false'", "'true'", null, "'('", "')'"
 		};
 	}
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
@@ -219,14 +219,17 @@ public class BoolangParser extends Parser {
 	}
 
 	public static class OrContext extends ParserRuleContext {
+		public ExprContext leftexpr;
+		public ExprContext rightexpr;
+		public ValContext leftval;
 		public TerminalNode OPENPAREN() { return getToken(BoolangParser.OPENPAREN, 0); }
+		public TerminalNode CLOSEPAREN() { return getToken(BoolangParser.CLOSEPAREN, 0); }
 		public List<ExprContext> expr() {
 			return getRuleContexts(ExprContext.class);
 		}
 		public ExprContext expr(int i) {
 			return getRuleContext(ExprContext.class,i);
 		}
-		public TerminalNode CLOSEPAREN() { return getToken(BoolangParser.CLOSEPAREN, 0); }
 		public ValContext val() {
 			return getRuleContext(ValContext.class,0);
 		}
@@ -262,13 +265,13 @@ public class BoolangParser extends Parser {
 				setState(18);
 				match(OPENPAREN);
 				setState(19);
-				expr();
+				((OrContext)_localctx).leftexpr = expr();
 				setState(20);
 				match(CLOSEPAREN);
 				setState(21);
 				match(T__0);
 				setState(22);
-				expr();
+				((OrContext)_localctx).rightexpr = expr();
 				}
 				break;
 			case CLOSEPAREN:
@@ -281,11 +284,11 @@ public class BoolangParser extends Parser {
 				enterOuterAlt(_localctx, 3);
 				{
 				setState(25);
-				val();
+				((OrContext)_localctx).leftval = val();
 				setState(26);
 				match(T__0);
 				setState(27);
-				expr();
+				((OrContext)_localctx).rightexpr = expr();
 				}
 				break;
 			default:
@@ -304,19 +307,19 @@ public class BoolangParser extends Parser {
 	}
 
 	public static class AndContext extends ParserRuleContext {
+		public ExprContext leftexpr;
+		public ExprContext rightexpr;
+		public ValContext leftval;
+		public TerminalNode OPENPAREN() { return getToken(BoolangParser.OPENPAREN, 0); }
+		public TerminalNode CLOSEPAREN() { return getToken(BoolangParser.CLOSEPAREN, 0); }
+		public List<ExprContext> expr() {
+			return getRuleContexts(ExprContext.class);
+		}
+		public ExprContext expr(int i) {
+			return getRuleContext(ExprContext.class,i);
+		}
 		public ValContext val() {
 			return getRuleContext(ValContext.class,0);
-		}
-		public ExprContext expr() {
-			return getRuleContext(ExprContext.class,0);
-		}
-		public List<TerminalNode> OPENPAREN() { return getTokens(BoolangParser.OPENPAREN); }
-		public TerminalNode OPENPAREN(int i) {
-			return getToken(BoolangParser.OPENPAREN, i);
-		}
-		public List<TerminalNode> CLOSEPAREN() { return getTokens(BoolangParser.CLOSEPAREN); }
-		public TerminalNode CLOSEPAREN(int i) {
-			return getToken(BoolangParser.CLOSEPAREN, i);
 		}
 		public AndContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -340,47 +343,44 @@ public class BoolangParser extends Parser {
 	public final AndContext and() throws RecognitionException {
 		AndContext _localctx = new AndContext(_ctx, getState());
 		enterRule(_localctx, 6, RULE_and);
-		int _la;
 		try {
-			int _alt;
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(34);
+			setState(42);
 			_errHandler.sync(this);
-			_la = _input.LA(1);
-			while (_la==OPENPAREN) {
-				{
+			switch (_input.LA(1)) {
+			case OPENPAREN:
+				enterOuterAlt(_localctx, 1);
 				{
 				setState(31);
 				match(OPENPAREN);
+				setState(32);
+				((AndContext)_localctx).leftexpr = expr();
+				setState(33);
+				match(CLOSEPAREN);
+				setState(34);
+				match(T__1);
+				setState(35);
+				((AndContext)_localctx).rightexpr = expr();
 				}
+				break;
+			case CLOSEPAREN:
+				enterOuterAlt(_localctx, 2);
+				{
 				}
-				setState(36);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-			}
-			setState(37);
-			val();
-			setState(38);
-			match(T__1);
-			setState(39);
-			expr();
-			setState(43);
-			_errHandler.sync(this);
-			_alt = getInterpreter().adaptivePredict(_input,3,_ctx);
-			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
-				if ( _alt==1 ) {
-					{
-					{
-					setState(40);
-					match(CLOSEPAREN);
-					}
-					} 
+				break;
+			case FALSE:
+			case TRUE:
+				enterOuterAlt(_localctx, 3);
+				{
+				setState(38);
+				((AndContext)_localctx).leftval = val();
+				setState(39);
+				match(T__1);
+				setState(40);
+				((AndContext)_localctx).rightexpr = expr();
 				}
-				setState(45);
-				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,3,_ctx);
-			}
+				break;
+			default:
+				throw new NoViableAltException(this);
 			}
 		}
 		catch (RecognitionException re) {
@@ -397,14 +397,6 @@ public class BoolangParser extends Parser {
 	public static class NotContext extends ParserRuleContext {
 		public ExprContext expr() {
 			return getRuleContext(ExprContext.class,0);
-		}
-		public List<TerminalNode> OPENPAREN() { return getTokens(BoolangParser.OPENPAREN); }
-		public TerminalNode OPENPAREN(int i) {
-			return getToken(BoolangParser.OPENPAREN, i);
-		}
-		public List<TerminalNode> CLOSEPAREN() { return getTokens(BoolangParser.CLOSEPAREN); }
-		public TerminalNode CLOSEPAREN(int i) {
-			return getToken(BoolangParser.CLOSEPAREN, i);
 		}
 		public NotContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -428,45 +420,13 @@ public class BoolangParser extends Parser {
 	public final NotContext not() throws RecognitionException {
 		NotContext _localctx = new NotContext(_ctx, getState());
 		enterRule(_localctx, 8, RULE_not);
-		int _la;
 		try {
-			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(49);
-			_errHandler.sync(this);
-			_la = _input.LA(1);
-			while (_la==OPENPAREN) {
-				{
-				{
-				setState(46);
-				match(OPENPAREN);
-				}
-				}
-				setState(51);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-			}
-			setState(52);
+			setState(44);
 			match(T__2);
-			setState(53);
+			setState(45);
 			expr();
-			setState(57);
-			_errHandler.sync(this);
-			_alt = getInterpreter().adaptivePredict(_input,5,_ctx);
-			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
-				if ( _alt==1 ) {
-					{
-					{
-					setState(54);
-					match(CLOSEPAREN);
-					}
-					} 
-				}
-				setState(59);
-				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,5,_ctx);
-			}
 			}
 		}
 		catch (RecognitionException re) {
@@ -481,23 +441,19 @@ public class BoolangParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\n?\4\2\t\2\4\3\t"+
-		"\3\4\4\t\4\4\5\t\5\4\6\t\6\3\2\3\2\3\2\3\2\5\2\21\n\2\3\3\3\3\3\4\3\4"+
-		"\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\5\4 \n\4\3\5\7\5#\n\5\f\5\16\5&\13"+
-		"\5\3\5\3\5\3\5\3\5\7\5,\n\5\f\5\16\5/\13\5\3\6\7\6\62\n\6\f\6\16\6\65"+
-		"\13\6\3\6\3\6\3\6\7\6:\n\6\f\6\16\6=\13\6\3\6\2\2\7\2\4\6\b\n\2\3\3\2"+
-		"\6\7\2B\2\20\3\2\2\2\4\22\3\2\2\2\6\37\3\2\2\2\b$\3\2\2\2\n\63\3\2\2\2"+
-		"\f\21\5\4\3\2\r\21\5\6\4\2\16\21\5\b\5\2\17\21\5\n\6\2\20\f\3\2\2\2\20"+
-		"\r\3\2\2\2\20\16\3\2\2\2\20\17\3\2\2\2\21\3\3\2\2\2\22\23\t\2\2\2\23\5"+
-		"\3\2\2\2\24\25\7\t\2\2\25\26\5\2\2\2\26\27\7\n\2\2\27\30\7\3\2\2\30\31"+
-		"\5\2\2\2\31 \3\2\2\2\32 \3\2\2\2\33\34\5\4\3\2\34\35\7\3\2\2\35\36\5\2"+
-		"\2\2\36 \3\2\2\2\37\24\3\2\2\2\37\32\3\2\2\2\37\33\3\2\2\2 \7\3\2\2\2"+
-		"!#\7\t\2\2\"!\3\2\2\2#&\3\2\2\2$\"\3\2\2\2$%\3\2\2\2%\'\3\2\2\2&$\3\2"+
-		"\2\2\'(\5\4\3\2()\7\4\2\2)-\5\2\2\2*,\7\n\2\2+*\3\2\2\2,/\3\2\2\2-+\3"+
-		"\2\2\2-.\3\2\2\2.\t\3\2\2\2/-\3\2\2\2\60\62\7\t\2\2\61\60\3\2\2\2\62\65"+
-		"\3\2\2\2\63\61\3\2\2\2\63\64\3\2\2\2\64\66\3\2\2\2\65\63\3\2\2\2\66\67"+
-		"\7\5\2\2\67;\5\2\2\28:\7\n\2\298\3\2\2\2:=\3\2\2\2;9\3\2\2\2;<\3\2\2\2"+
-		"<\13\3\2\2\2=;\3\2\2\2\b\20\37$-\63;";
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\n\62\4\2\t\2\4\3"+
+		"\t\3\4\4\t\4\4\5\t\5\4\6\t\6\3\2\3\2\3\2\3\2\5\2\21\n\2\3\3\3\3\3\4\3"+
+		"\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\5\4 \n\4\3\5\3\5\3\5\3\5\3\5\3"+
+		"\5\3\5\3\5\3\5\3\5\3\5\5\5-\n\5\3\6\3\6\3\6\3\6\2\2\7\2\4\6\b\n\2\3\3"+
+		"\2\6\7\2\63\2\20\3\2\2\2\4\22\3\2\2\2\6\37\3\2\2\2\b,\3\2\2\2\n.\3\2\2"+
+		"\2\f\21\5\4\3\2\r\21\5\6\4\2\16\21\5\b\5\2\17\21\5\n\6\2\20\f\3\2\2\2"+
+		"\20\r\3\2\2\2\20\16\3\2\2\2\20\17\3\2\2\2\21\3\3\2\2\2\22\23\t\2\2\2\23"+
+		"\5\3\2\2\2\24\25\7\t\2\2\25\26\5\2\2\2\26\27\7\n\2\2\27\30\7\3\2\2\30"+
+		"\31\5\2\2\2\31 \3\2\2\2\32 \3\2\2\2\33\34\5\4\3\2\34\35\7\3\2\2\35\36"+
+		"\5\2\2\2\36 \3\2\2\2\37\24\3\2\2\2\37\32\3\2\2\2\37\33\3\2\2\2 \7\3\2"+
+		"\2\2!\"\7\t\2\2\"#\5\2\2\2#$\7\n\2\2$%\7\4\2\2%&\5\2\2\2&-\3\2\2\2\'-"+
+		"\3\2\2\2()\5\4\3\2)*\7\4\2\2*+\5\2\2\2+-\3\2\2\2,!\3\2\2\2,\'\3\2\2\2"+
+		",(\3\2\2\2-\t\3\2\2\2./\7\5\2\2/\60\5\2\2\2\60\13\3\2\2\2\5\20\37,";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {
