@@ -2,8 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7646a8fa-facf-4ea9-b4a8-3194a22ac48c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/com/company/Prefix.g4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/PrefixMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/BoolangVisitorReal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/BoolangVisitorReal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/BoolangMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/gen/Boolang.interp" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Boolang/Boolang.interp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/gen/Boolang.tokens" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Boolang/Boolang.tokens" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/gen/BoolangBaseListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Boolang/BoolangBaseListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/gen/BoolangBaseVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Boolang/BoolangBaseVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/gen/BoolangLexer.interp" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Boolang/BoolangLexer.interp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/gen/BoolangLexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Boolang/BoolangLexer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/gen/BoolangLexer.tokens" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Boolang/BoolangLexer.tokens" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/gen/BoolangListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Boolang/BoolangListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/gen/BoolangParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Boolang/BoolangParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/gen/BoolangVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Boolang/BoolangVisitor.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,7 +44,7 @@
     <property name="add_unversioned_files" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../antlr-4.8-complete.jar!/" />
     <property name="project.structure.last.edited" value="Libraries" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
@@ -42,7 +55,7 @@
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="com.company.Main" />
+      <option name="MAIN_CLASS_NAME" value="com.company.BoolangMain" />
       <module name="Principals-of-Programming-Languages" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <RunnerSettings RunnerId="Run" />
@@ -68,26 +81,30 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="473" y="154" key="FileChooserDialogImpl" timestamp="1582308373998">
+    <state x="566" y="297" width="403" height="236" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1583247841103">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="473" y="154" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1582308373998" />
-    <state width="1515" height="210" key="GridCell.Tab.0.bottom" timestamp="1582565833113">
+    <state x="566" y="297" width="403" height="236" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.824@0.0.1536.824" timestamp="1583247841103" />
+    <state x="473" y="154" key="FileChooserDialogImpl" timestamp="1583246181072">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1582565833113" />
-    <state width="1515" height="210" key="GridCell.Tab.0.center" timestamp="1582565833113">
+    <state x="473" y="154" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1583246181072" />
+    <state width="1515" height="210" key="GridCell.Tab.0.bottom" timestamp="1583249114120">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1582565833113" />
-    <state width="1515" height="210" key="GridCell.Tab.0.left" timestamp="1582565833113">
+    <state width="1515" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1583249114120" />
+    <state width="1515" height="210" key="GridCell.Tab.0.center" timestamp="1583249114119">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1582565833113" />
-    <state width="1515" height="210" key="GridCell.Tab.0.right" timestamp="1582565833113">
+    <state width="1515" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1583249114119" />
+    <state width="1515" height="210" key="GridCell.Tab.0.left" timestamp="1583249114119">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1582565833113" />
+    <state width="1515" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1583249114119" />
+    <state width="1515" height="210" key="GridCell.Tab.0.right" timestamp="1583249114120">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1515" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1583249114120" />
     <state width="1515" height="261" key="GridCell.Tab.1.bottom" timestamp="1582565713025">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -104,14 +121,14 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1515" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1582565713025" />
-    <state x="249" y="0" key="SettingsEditor" timestamp="1582308687679">
+    <state x="249" y="0" key="SettingsEditor" timestamp="1583255910105">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="249" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1582308687679" />
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1582565742909">
+    <state x="249" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1583255910105" />
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1583249245356">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1582565742909" />
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1583249245356" />
     <state x="425" y="187" key="run.anything.popup" timestamp="1582556471584">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

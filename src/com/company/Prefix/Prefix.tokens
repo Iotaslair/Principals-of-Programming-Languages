@@ -1,0 +1,15 @@
+T__0=1
+T__1=2
+T__2=3
+FALSE=4
+TRUE=5
+WS=6
+OPENPAREN=7
+CLOSEPAREN=8
+'or'=1
+'and'=2
+'not'=3
+'false'=4
+'true'=5
+'('=7
+')'=8

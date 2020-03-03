@@ -1,7 +1,7 @@
 package com.company;
 
-import com.company.gen.BoolangBaseVisitor;
-import com.company.gen.BoolangParser;
+import com.company.Boolang.BoolangBaseVisitor;
+import com.company.Boolang.BoolangParser;
 
 public class BoolangVisitorReal<Boolean> extends BoolangBaseVisitor<java.lang.Boolean> {
     @Override

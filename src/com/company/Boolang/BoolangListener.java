@@ -1,5 +1,5 @@
 // Generated from C:/Users/billy/POPL/Principals-of-Programming-Languages/src/com/company\Boolang.g4 by ANTLR 4.8
-package com.company.gen;
+package com.company.Boolang;
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**
