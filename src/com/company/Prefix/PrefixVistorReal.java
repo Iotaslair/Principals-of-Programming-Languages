@@ -1,4 +1,4 @@
-package com.company;
+package com.company.Prefix;
 
 import com.company.Prefix.PrefixBaseVisitor;
 import com.company.Prefix.PrefixParser;

@@ -1,7 +1,5 @@
-package com.company;
+package com.company.Prefix;
 
-import com.company.Prefix.PrefixLexer;
-import com.company.Prefix.PrefixParser;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;

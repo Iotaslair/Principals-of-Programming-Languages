@@ -81,7 +81,7 @@ public class HelloLexer extends Lexer {
 	}
 
 	@Override
-	public String getGrammarFileName() { return "Hello.g4"; }
+	public String getGrammarFileName() { return "com/company/hellogen/Hello.g4"; }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }

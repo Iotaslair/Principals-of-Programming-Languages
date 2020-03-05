@@ -1,7 +1,5 @@
-package com.company;
+package com.company.Boolang;
 
-import com.company.Boolang.BoolangLexer;
-import com.company.Boolang.BoolangParser;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;

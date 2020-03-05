@@ -1,4 +1,4 @@
-package com.company;
+package com.company.Boolang;
 
 import com.company.Boolang.BoolangBaseVisitor;
 import com.company.Boolang.BoolangParser;
