@@ -8,7 +8,11 @@ public class PrefixMain {
 
     public static void main(String[] args) {
         // write your code here
-        String input = "and true false";
+        String input = "if(true){" +
+                "false" +
+                "} else {" +
+                "true" +
+                "}";
         PrefixLexer lexer = new PrefixLexer(CharStreams.fromString(input));
         PrefixParser parser = new PrefixParser(new CommonTokenStream(lexer));
         ParseTree tree = parser.expr();

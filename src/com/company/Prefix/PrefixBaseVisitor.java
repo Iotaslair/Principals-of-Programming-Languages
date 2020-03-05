@@ -1,4 +1,4 @@
-// Generated from C:/Users/billy/POPL/Principals-of-Programming-Languages/src/com/company\Prefix.g4 by ANTLR 4.8
+// Generated from C:/Users/billy/POPL/Principals-of-Programming-Languages/src/com/company/Prefix\Prefix.g4 by ANTLR 4.8
 package com.company.Prefix;
 import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
 
@@ -18,6 +18,13 @@ public class PrefixBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
 	@Override public T visitExpr(PrefixParser.ExprContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitBooleanvalue(PrefixParser.BooleanvalueContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -46,4 +53,11 @@ public class PrefixBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
 	@Override public T visitNot(PrefixParser.NotContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitIfstatement(PrefixParser.IfstatementContext ctx) { return visitChildren(ctx); }
 }

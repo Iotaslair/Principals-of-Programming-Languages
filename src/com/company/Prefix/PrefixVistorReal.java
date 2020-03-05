@@ -1,8 +1,5 @@
 package com.company.Prefix;
 
-import com.company.Prefix.PrefixBaseVisitor;
-import com.company.Prefix.PrefixParser;
-
 public class PrefixVistorReal<Boolean> extends PrefixBaseVisitor<java.lang.Boolean> {
 
     @Override
@@ -47,5 +44,22 @@ public class PrefixVistorReal<Boolean> extends PrefixBaseVisitor<java.lang.Boole
     public java.lang.Boolean visitNot(PrefixParser.NotContext ctx) {
         return !visitExpr(ctx.expr());
     }
+
+    @Override
+    public java.lang.Boolean visitBooleanvalue(PrefixParser.BooleanvalueContext ctx) {
+        return visitChildren(ctx);
+    }
+
+    @Override
+    public java.lang.Boolean visitIfstatement(PrefixParser.IfstatementContext ctx) {
+        boolean value;
+        if (visitBooleanvalue(ctx.ifsection)) {
+            value = visitExpr(ctx.thensection);
+        } else {
+            value = visitExpr(ctx.elsesection);
+        }
+        return value;
+    }
+
 
 }

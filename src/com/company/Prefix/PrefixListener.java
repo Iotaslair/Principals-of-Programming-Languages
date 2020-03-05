@@ -1,4 +1,4 @@
-// Generated from C:/Users/billy/POPL/Principals-of-Programming-Languages/src/com/company\Prefix.g4 by ANTLR 4.8
+// Generated from C:/Users/billy/POPL/Principals-of-Programming-Languages/src/com/company/Prefix\Prefix.g4 by ANTLR 4.8
 package com.company.Prefix;
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
@@ -17,6 +17,16 @@ public interface PrefixListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitExpr(PrefixParser.ExprContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link PrefixParser#booleanvalue}.
+	 * @param ctx the parse tree
+	 */
+	void enterBooleanvalue(PrefixParser.BooleanvalueContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link PrefixParser#booleanvalue}.
+	 * @param ctx the parse tree
+	 */
+	void exitBooleanvalue(PrefixParser.BooleanvalueContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link PrefixParser#val}.
 	 * @param ctx the parse tree
@@ -57,4 +67,14 @@ public interface PrefixListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitNot(PrefixParser.NotContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link PrefixParser#ifstatement}.
+	 * @param ctx the parse tree
+	 */
+	void enterIfstatement(PrefixParser.IfstatementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link PrefixParser#ifstatement}.
+	 * @param ctx the parse tree
+	 */
+	void exitIfstatement(PrefixParser.IfstatementContext ctx);
 }

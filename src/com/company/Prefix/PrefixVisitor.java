@@ -1,4 +1,4 @@
-// Generated from C:/Users/billy/POPL/Principals-of-Programming-Languages/src/com/company\Prefix.g4 by ANTLR 4.8
+// Generated from C:/Users/billy/POPL/Principals-of-Programming-Languages/src/com/company/Prefix\Prefix.g4 by ANTLR 4.8
 package com.company.Prefix;
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
@@ -16,6 +16,12 @@ public interface PrefixVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitExpr(PrefixParser.ExprContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link PrefixParser#booleanvalue}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitBooleanvalue(PrefixParser.BooleanvalueContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link PrefixParser#val}.
 	 * @param ctx the parse tree
@@ -40,4 +46,10 @@ public interface PrefixVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitNot(PrefixParser.NotContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link PrefixParser#ifstatement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitIfstatement(PrefixParser.IfstatementContext ctx);
 }

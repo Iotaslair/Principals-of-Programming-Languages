@@ -1,4 +1,4 @@
-// Generated from C:/Users/billy/POPL/Principals-of-Programming-Languages/src/com/company\Prefix.g4 by ANTLR 4.8
+// Generated from C:/Users/billy/POPL/Principals-of-Programming-Languages/src/com/company/Prefix\Prefix.g4 by ANTLR 4.8
 package com.company.Prefix;
 
 import org.antlr.v4.runtime.ParserRuleContext;
@@ -23,6 +23,18 @@ public class PrefixBaseListener implements PrefixListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitExpr(PrefixParser.ExprContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterBooleanvalue(PrefixParser.BooleanvalueContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitBooleanvalue(PrefixParser.BooleanvalueContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -71,6 +83,18 @@ public class PrefixBaseListener implements PrefixListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitNot(PrefixParser.NotContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterIfstatement(PrefixParser.IfstatementContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitIfstatement(PrefixParser.IfstatementContext ctx) { }
 
 	/**
 	 * {@inheritDoc}
