@@ -14,8 +14,8 @@ public class BoolangMain {
         BoolangLexer lexer = new BoolangLexer(CharStreams.fromString(input));
         BoolangParser parser = new BoolangParser(new CommonTokenStream(lexer));
         ParseTree tree = parser.expr();
-        BoolangVisitorReal visitor = new BoolangVisitorReal();
-        boolean value = (boolean) visitor.visit(tree);
+        BoolangVisitorReal<Boolean> visitor = new BoolangVisitorReal<>();
+        boolean value = visitor.visit(tree);
         System.out.println(input + " : " + value);
 
 

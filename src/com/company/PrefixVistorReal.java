@@ -1,6 +1,5 @@
 package com.company;
 
-import com.company.Boolang.BoolangParser;
 import com.company.Prefix.PrefixBaseVisitor;
 import com.company.Prefix.PrefixParser;
 
