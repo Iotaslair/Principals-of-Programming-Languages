@@ -1,6 +1,10 @@
 package com.company.Prefix;
 
+import java.util.HashMap;
+
 public class PrefixVistorReal<Boolean> extends PrefixBaseVisitor<java.lang.Boolean> {
+
+    HashMap<String, Boolean> symbolTable = new HashMap<>();
 
     @Override
     public java.lang.Boolean visitExpr(PrefixParser.ExprContext ctx) {
@@ -59,6 +63,15 @@ public class PrefixVistorReal<Boolean> extends PrefixBaseVisitor<java.lang.Boole
             value = visitExpr(ctx.elsesection);
         }
         return value;
+    }
+
+    @Override
+    public java.lang.Boolean visitVariable(PrefixParser.VariableContext ctx) {
+
+        boolean value = visitBooleanvalue(ctx.value);
+        symbolTable.put(ctx.varname, value);
+
+        return visitChildren(ctx);
     }
 
 

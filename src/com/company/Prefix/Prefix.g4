@@ -7,7 +7,7 @@ and : 'and' OPENPAREN leftexpr=expr CLOSEPAREN rightexpr=expr || 'and' leftval=v
 not : 'not' expr;
 ifstatement : IF OPENPAREN ifsection=booleanvalue CLOSEPAREN OPENBRACKET thensection=expr CLOSEBRACKET ||
 IF OPENPAREN ifsection=booleanvalue CLOSEPAREN OPENBRACKET thensection=expr CLOSEPAREN ELSE OPENBRACKET elsesection=expr CLOSEBRACKET;
-variable : varname=VALIDVARIABLENAMES '=' booleanvalue;
+variable : varname=VALIDVARIABLENAMES '=' value=booleanvalue;
 FALSE : 'false';
 TRUE : 'true';
 WS : [ \t\r\n]+ -> skip ; // skip spaces, tabs, newlines

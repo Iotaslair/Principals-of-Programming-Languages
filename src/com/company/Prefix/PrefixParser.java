@@ -628,10 +628,11 @@ public class PrefixParser extends Parser {
 
 	public static class VariableContext extends ParserRuleContext {
 		public Token varname;
+		public BooleanvalueContext value;
+		public TerminalNode VALIDVARIABLENAMES() { return getToken(PrefixParser.VALIDVARIABLENAMES, 0); }
 		public BooleanvalueContext booleanvalue() {
 			return getRuleContext(BooleanvalueContext.class,0);
 		}
-		public TerminalNode VALIDVARIABLENAMES() { return getToken(PrefixParser.VALIDVARIABLENAMES, 0); }
 		public VariableContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -662,7 +663,7 @@ public class PrefixParser extends Parser {
 			setState(82);
 			match(T__3);
 			setState(83);
-			booleanvalue();
+			((VariableContext)_localctx).value = booleanvalue();
 			}
 		}
 		catch (RecognitionException re) {
