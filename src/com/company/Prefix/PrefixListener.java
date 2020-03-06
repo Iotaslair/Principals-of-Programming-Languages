@@ -77,4 +77,14 @@ public interface PrefixListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitIfstatement(PrefixParser.IfstatementContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link PrefixParser#variable}.
+	 * @param ctx the parse tree
+	 */
+	void enterVariable(PrefixParser.VariableContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link PrefixParser#variable}.
+	 * @param ctx the parse tree
+	 */
+	void exitVariable(PrefixParser.VariableContext ctx);
 }

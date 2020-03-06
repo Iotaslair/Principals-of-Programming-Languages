@@ -52,4 +52,10 @@ public interface PrefixVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitIfstatement(PrefixParser.IfstatementContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link PrefixParser#variable}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitVariable(PrefixParser.VariableContext ctx);
 }
