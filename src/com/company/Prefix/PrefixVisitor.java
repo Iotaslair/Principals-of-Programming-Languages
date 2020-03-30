@@ -58,4 +58,10 @@ public interface PrefixVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitVariable(PrefixParser.VariableContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link PrefixParser#variablename}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitVariablename(PrefixParser.VariablenameContext ctx);
 }

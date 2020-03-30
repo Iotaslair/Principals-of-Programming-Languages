@@ -107,6 +107,18 @@ public class PrefixBaseListener implements PrefixListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitVariable(PrefixParser.VariableContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterVariablename(PrefixParser.VariablenameContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitVariablename(PrefixParser.VariablenameContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

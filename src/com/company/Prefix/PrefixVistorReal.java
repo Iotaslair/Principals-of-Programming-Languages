@@ -51,6 +51,14 @@ public class PrefixVistorReal<Boolean> extends PrefixBaseVisitor<java.lang.Boole
 
     @Override
     public java.lang.Boolean visitBooleanvalue(PrefixParser.BooleanvalueContext ctx) {
+
+        if (ctx.variable() != null) {
+            String varName = ctx.variable().value.getText();
+            if (symbolTable.containsKey(varName)) {
+                return symbolTable.get(varName);
+            }
+        }
+
         return visitChildren(ctx);
     }
 
@@ -71,7 +79,20 @@ public class PrefixVistorReal<Boolean> extends PrefixBaseVisitor<java.lang.Boole
         boolean value = visitBooleanvalue(ctx.value);
         symbolTable.put(ctx.varname.getText(), value);
 
-        return visitChildren(ctx);
+        return value;
+//        return visitChildren(ctx);
+    }
+
+    @Override
+    public java.lang.Boolean visitVariablename(PrefixParser.VariablenameContext ctx) {
+
+        if (symbolTable.containsKey(ctx.varname.getText())) {
+            java.lang.Boolean result = symbolTable.get(ctx.varname.getText());
+            return result;
+        } else {
+            System.out.println("Could not find this variable in the symbol table " + ctx.varname.getText());
+            return false;
+        }
     }
 
 
