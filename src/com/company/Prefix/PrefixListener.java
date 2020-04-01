@@ -38,6 +38,16 @@ public interface PrefixListener extends ParseTreeListener {
 	 */
 	void exitBooleanvalue(PrefixParser.BooleanvalueContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link PrefixParser#integervalue}.
+	 * @param ctx the parse tree
+	 */
+	void enterIntegervalue(PrefixParser.IntegervalueContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link PrefixParser#integervalue}.
+	 * @param ctx the parse tree
+	 */
+	void exitIntegervalue(PrefixParser.IntegervalueContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link PrefixParser#val}.
 	 * @param ctx the parse tree
 	 */
@@ -117,4 +127,34 @@ public interface PrefixListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitInteger(PrefixParser.IntegerContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link PrefixParser#add}.
+	 * @param ctx the parse tree
+	 */
+	void enterAdd(PrefixParser.AddContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link PrefixParser#add}.
+	 * @param ctx the parse tree
+	 */
+	void exitAdd(PrefixParser.AddContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link PrefixParser#subtract}.
+	 * @param ctx the parse tree
+	 */
+	void enterSubtract(PrefixParser.SubtractContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link PrefixParser#subtract}.
+	 * @param ctx the parse tree
+	 */
+	void exitSubtract(PrefixParser.SubtractContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link PrefixParser#multiply}.
+	 * @param ctx the parse tree
+	 */
+	void enterMultiply(PrefixParser.MultiplyContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link PrefixParser#multiply}.
+	 * @param ctx the parse tree
+	 */
+	void exitMultiply(PrefixParser.MultiplyContext ctx);
 }

@@ -17,9 +17,9 @@ public class PrefixLexer extends Lexer {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		T__0=1, T__1=2, T__2=3, T__3=4, FALSE=5, TRUE=6, WS=7, OPENPAREN=8, CLOSEPAREN=9, 
-		IF=10, OPENBRACKET=11, CLOSEBRACKET=12, ELSE=13, VALIDVARIABLENAMES=14, 
-		INTEGER=15;
+		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, T__5=6, T__6=7, FALSE=8, TRUE=9, 
+		WS=10, OPENPAREN=11, CLOSEPAREN=12, IF=13, OPENBRACKET=14, CLOSEBRACKET=15, 
+		ELSE=16, VALIDVARIABLENAMES=17, INTEGER=18;
 	public static String[] channelNames = {
 		"DEFAULT_TOKEN_CHANNEL", "HIDDEN"
 	};
@@ -30,23 +30,25 @@ public class PrefixLexer extends Lexer {
 
 	private static String[] makeRuleNames() {
 		return new String[] {
-			"T__0", "T__1", "T__2", "T__3", "FALSE", "TRUE", "WS", "OPENPAREN", "CLOSEPAREN", 
-			"IF", "OPENBRACKET", "CLOSEBRACKET", "ELSE", "VALIDVARIABLENAMES", "INTEGER"
+			"T__0", "T__1", "T__2", "T__3", "T__4", "T__5", "T__6", "FALSE", "TRUE", 
+			"WS", "OPENPAREN", "CLOSEPAREN", "IF", "OPENBRACKET", "CLOSEBRACKET", 
+			"ELSE", "VALIDVARIABLENAMES", "INTEGER"
 		};
 	}
 	public static final String[] ruleNames = makeRuleNames();
 
 	private static String[] makeLiteralNames() {
 		return new String[] {
-			null, "'or'", "'and'", "'not'", "'='", "'false'", "'true'", null, "'('", 
-			"')'", "'if'", "'{'", "'}'", "'else'"
+			null, "'or'", "'and'", "'not'", "'='", "'+'", "'-'", "'*'", "'false'", 
+			"'true'", null, "'('", "')'", "'if'", "'{'", "'}'", "'else'"
 		};
 	}
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
 	private static String[] makeSymbolicNames() {
 		return new String[] {
-			null, null, null, null, null, "FALSE", "TRUE", "WS", "OPENPAREN", "CLOSEPAREN", 
-			"IF", "OPENBRACKET", "CLOSEBRACKET", "ELSE", "VALIDVARIABLENAMES", "INTEGER"
+			null, null, null, null, null, null, null, null, "FALSE", "TRUE", "WS", 
+			"OPENPAREN", "CLOSEPAREN", "IF", "OPENBRACKET", "CLOSEBRACKET", "ELSE", 
+			"VALIDVARIABLENAMES", "INTEGER"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -108,30 +110,33 @@ public class PrefixLexer extends Lexer {
 	public ATN getATN() { return _ATN; }
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\2\21]\b\1\4\2\t\2\4"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\2\24i\b\1\4\2\t\2\4"+
 		"\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t"+
-		"\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\3\2\3\2\3\2\3\3\3\3"+
-		"\3\3\3\3\3\4\3\4\3\4\3\4\3\5\3\5\3\6\3\6\3\6\3\6\3\6\3\6\3\7\3\7\3\7\3"+
-		"\7\3\7\3\b\6\b;\n\b\r\b\16\b<\3\b\3\b\3\t\3\t\3\n\3\n\3\13\3\13\3\13\3"+
-		"\f\3\f\3\r\3\r\3\16\3\16\3\16\3\16\3\16\3\17\3\17\7\17S\n\17\f\17\16\17"+
-		"V\13\17\3\20\7\20Y\n\20\f\20\16\20\\\13\20\2\2\21\3\3\5\4\7\5\t\6\13\7"+
-		"\r\b\17\t\21\n\23\13\25\f\27\r\31\16\33\17\35\20\37\21\3\2\6\5\2\13\f"+
-		"\17\17\"\"\4\2C\\c|\5\2\62;C\\c|\3\2\62;\2_\2\3\3\2\2\2\2\5\3\2\2\2\2"+
-		"\7\3\2\2\2\2\t\3\2\2\2\2\13\3\2\2\2\2\r\3\2\2\2\2\17\3\2\2\2\2\21\3\2"+
-		"\2\2\2\23\3\2\2\2\2\25\3\2\2\2\2\27\3\2\2\2\2\31\3\2\2\2\2\33\3\2\2\2"+
-		"\2\35\3\2\2\2\2\37\3\2\2\2\3!\3\2\2\2\5$\3\2\2\2\7(\3\2\2\2\t,\3\2\2\2"+
-		"\13.\3\2\2\2\r\64\3\2\2\2\17:\3\2\2\2\21@\3\2\2\2\23B\3\2\2\2\25D\3\2"+
-		"\2\2\27G\3\2\2\2\31I\3\2\2\2\33K\3\2\2\2\35P\3\2\2\2\37Z\3\2\2\2!\"\7"+
-		"q\2\2\"#\7t\2\2#\4\3\2\2\2$%\7c\2\2%&\7p\2\2&\'\7f\2\2\'\6\3\2\2\2()\7"+
-		"p\2\2)*\7q\2\2*+\7v\2\2+\b\3\2\2\2,-\7?\2\2-\n\3\2\2\2./\7h\2\2/\60\7"+
-		"c\2\2\60\61\7n\2\2\61\62\7u\2\2\62\63\7g\2\2\63\f\3\2\2\2\64\65\7v\2\2"+
-		"\65\66\7t\2\2\66\67\7w\2\2\678\7g\2\28\16\3\2\2\29;\t\2\2\2:9\3\2\2\2"+
-		";<\3\2\2\2<:\3\2\2\2<=\3\2\2\2=>\3\2\2\2>?\b\b\2\2?\20\3\2\2\2@A\7*\2"+
-		"\2A\22\3\2\2\2BC\7+\2\2C\24\3\2\2\2DE\7k\2\2EF\7h\2\2F\26\3\2\2\2GH\7"+
-		"}\2\2H\30\3\2\2\2IJ\7\177\2\2J\32\3\2\2\2KL\7g\2\2LM\7n\2\2MN\7u\2\2N"+
-		"O\7g\2\2O\34\3\2\2\2PT\t\3\2\2QS\t\4\2\2RQ\3\2\2\2SV\3\2\2\2TR\3\2\2\2"+
-		"TU\3\2\2\2U\36\3\2\2\2VT\3\2\2\2WY\t\5\2\2XW\3\2\2\2Y\\\3\2\2\2ZX\3\2"+
-		"\2\2Z[\3\2\2\2[ \3\2\2\2\\Z\3\2\2\2\6\2<TZ\3\b\2\2";
+		"\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22"+
+		"\4\23\t\23\3\2\3\2\3\2\3\3\3\3\3\3\3\3\3\4\3\4\3\4\3\4\3\5\3\5\3\6\3\6"+
+		"\3\7\3\7\3\b\3\b\3\t\3\t\3\t\3\t\3\t\3\t\3\n\3\n\3\n\3\n\3\n\3\13\6\13"+
+		"G\n\13\r\13\16\13H\3\13\3\13\3\f\3\f\3\r\3\r\3\16\3\16\3\16\3\17\3\17"+
+		"\3\20\3\20\3\21\3\21\3\21\3\21\3\21\3\22\3\22\7\22_\n\22\f\22\16\22b\13"+
+		"\22\3\23\7\23e\n\23\f\23\16\23h\13\23\2\2\24\3\3\5\4\7\5\t\6\13\7\r\b"+
+		"\17\t\21\n\23\13\25\f\27\r\31\16\33\17\35\20\37\21!\22#\23%\24\3\2\6\5"+
+		"\2\13\f\17\17\"\"\4\2C\\c|\5\2\62;C\\c|\3\2\62;\2k\2\3\3\2\2\2\2\5\3\2"+
+		"\2\2\2\7\3\2\2\2\2\t\3\2\2\2\2\13\3\2\2\2\2\r\3\2\2\2\2\17\3\2\2\2\2\21"+
+		"\3\2\2\2\2\23\3\2\2\2\2\25\3\2\2\2\2\27\3\2\2\2\2\31\3\2\2\2\2\33\3\2"+
+		"\2\2\2\35\3\2\2\2\2\37\3\2\2\2\2!\3\2\2\2\2#\3\2\2\2\2%\3\2\2\2\3\'\3"+
+		"\2\2\2\5*\3\2\2\2\7.\3\2\2\2\t\62\3\2\2\2\13\64\3\2\2\2\r\66\3\2\2\2\17"+
+		"8\3\2\2\2\21:\3\2\2\2\23@\3\2\2\2\25F\3\2\2\2\27L\3\2\2\2\31N\3\2\2\2"+
+		"\33P\3\2\2\2\35S\3\2\2\2\37U\3\2\2\2!W\3\2\2\2#\\\3\2\2\2%f\3\2\2\2\'"+
+		"(\7q\2\2()\7t\2\2)\4\3\2\2\2*+\7c\2\2+,\7p\2\2,-\7f\2\2-\6\3\2\2\2./\7"+
+		"p\2\2/\60\7q\2\2\60\61\7v\2\2\61\b\3\2\2\2\62\63\7?\2\2\63\n\3\2\2\2\64"+
+		"\65\7-\2\2\65\f\3\2\2\2\66\67\7/\2\2\67\16\3\2\2\289\7,\2\29\20\3\2\2"+
+		"\2:;\7h\2\2;<\7c\2\2<=\7n\2\2=>\7u\2\2>?\7g\2\2?\22\3\2\2\2@A\7v\2\2A"+
+		"B\7t\2\2BC\7w\2\2CD\7g\2\2D\24\3\2\2\2EG\t\2\2\2FE\3\2\2\2GH\3\2\2\2H"+
+		"F\3\2\2\2HI\3\2\2\2IJ\3\2\2\2JK\b\13\2\2K\26\3\2\2\2LM\7*\2\2M\30\3\2"+
+		"\2\2NO\7+\2\2O\32\3\2\2\2PQ\7k\2\2QR\7h\2\2R\34\3\2\2\2ST\7}\2\2T\36\3"+
+		"\2\2\2UV\7\177\2\2V \3\2\2\2WX\7g\2\2XY\7n\2\2YZ\7u\2\2Z[\7g\2\2[\"\3"+
+		"\2\2\2\\`\t\3\2\2]_\t\4\2\2^]\3\2\2\2_b\3\2\2\2`^\3\2\2\2`a\3\2\2\2a$"+
+		"\3\2\2\2b`\3\2\2\2ce\t\5\2\2dc\3\2\2\2eh\3\2\2\2fd\3\2\2\2fg\3\2\2\2g"+
+		"&\3\2\2\2hf\3\2\2\2\6\2H`f\3\b\2\2";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {
