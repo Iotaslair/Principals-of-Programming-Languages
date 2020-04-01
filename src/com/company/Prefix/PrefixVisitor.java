@@ -17,6 +17,12 @@ public interface PrefixVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitExpr(PrefixParser.ExprContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link PrefixParser#data}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitData(PrefixParser.DataContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link PrefixParser#booleanvalue}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -53,15 +59,21 @@ public interface PrefixVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitIfstatement(PrefixParser.IfstatementContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link PrefixParser#variable}.
+	 * Visit a parse tree produced by {@link PrefixParser#variabledeclaration}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitVariable(PrefixParser.VariableContext ctx);
+	T visitVariabledeclaration(PrefixParser.VariabledeclarationContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link PrefixParser#variablename}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitVariablename(PrefixParser.VariablenameContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link PrefixParser#integer}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitInteger(PrefixParser.IntegerContext ctx);
 }

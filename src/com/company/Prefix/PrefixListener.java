@@ -18,6 +18,16 @@ public interface PrefixListener extends ParseTreeListener {
 	 */
 	void exitExpr(PrefixParser.ExprContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link PrefixParser#data}.
+	 * @param ctx the parse tree
+	 */
+	void enterData(PrefixParser.DataContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link PrefixParser#data}.
+	 * @param ctx the parse tree
+	 */
+	void exitData(PrefixParser.DataContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link PrefixParser#booleanvalue}.
 	 * @param ctx the parse tree
 	 */
@@ -78,15 +88,15 @@ public interface PrefixListener extends ParseTreeListener {
 	 */
 	void exitIfstatement(PrefixParser.IfstatementContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link PrefixParser#variable}.
+	 * Enter a parse tree produced by {@link PrefixParser#variabledeclaration}.
 	 * @param ctx the parse tree
 	 */
-	void enterVariable(PrefixParser.VariableContext ctx);
+	void enterVariabledeclaration(PrefixParser.VariabledeclarationContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link PrefixParser#variable}.
+	 * Exit a parse tree produced by {@link PrefixParser#variabledeclaration}.
 	 * @param ctx the parse tree
 	 */
-	void exitVariable(PrefixParser.VariableContext ctx);
+	void exitVariabledeclaration(PrefixParser.VariabledeclarationContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link PrefixParser#variablename}.
 	 * @param ctx the parse tree
@@ -97,4 +107,14 @@ public interface PrefixListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitVariablename(PrefixParser.VariablenameContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link PrefixParser#integer}.
+	 * @param ctx the parse tree
+	 */
+	void enterInteger(PrefixParser.IntegerContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link PrefixParser#integer}.
+	 * @param ctx the parse tree
+	 */
+	void exitInteger(PrefixParser.IntegerContext ctx);
 }

@@ -2,70 +2,63 @@ package com.company.Prefix;
 
 import java.util.HashMap;
 
-public class PrefixVistorReal<Boolean> extends PrefixBaseVisitor<java.lang.Boolean> {
+public class PrefixVistorReal<Data> extends PrefixBaseVisitor<com.company.Prefix.Data> {
 
-    HashMap<String, java.lang.Boolean> symbolTable = new HashMap<>();
+    HashMap<String, com.company.Prefix.Data> symbolTable = new HashMap<String, com.company.Prefix.Data>();
+    DataFactory dataFactory = new DataFactory();
 
     @Override
-    public java.lang.Boolean visitExpr(PrefixParser.ExprContext ctx) {
+    public com.company.Prefix.Data visitExpr(PrefixParser.ExprContext ctx) {
         return visitChildren(ctx);
     }
 
     @Override
-    public java.lang.Boolean visitAnd(PrefixParser.AndContext ctx) {
+    public com.company.Prefix.Data visitAnd(PrefixParser.AndContext ctx) {
         if (ctx.val() != null) {
-            return visitVal(ctx.leftval) && visitExpr(ctx.rightexpr);
+            return dataFactory.newData(visitVal(ctx.leftval).getBoolData() && visitExpr(ctx.rightexpr).getBoolData());
         } else if (ctx.leftexpr != null) {
-            return visitExpr(ctx.leftexpr) && visitExpr(ctx.rightexpr);
+            return dataFactory.newData(visitExpr(ctx.leftexpr).getBoolData() && visitExpr(ctx.rightexpr).getBoolData());
         }
         return visitChildren(ctx);
     }
 
 
     @Override
-    public java.lang.Boolean visitOr(PrefixParser.OrContext ctx) {
+    public com.company.Prefix.Data visitOr(PrefixParser.OrContext ctx) {
         if (ctx.val() != null) {
-            return visitVal(ctx.leftval) || visitExpr(ctx.rightexpr);
+            return dataFactory.newData(visitVal(ctx.leftval).getBoolData() || visitExpr(ctx.rightexpr).getBoolData());
         } else if (ctx.leftexpr != null) {
-            return visitExpr(ctx.leftexpr) || visitExpr(ctx.rightexpr);
+            return dataFactory.newData(visitExpr(ctx.leftexpr).getBoolData() || visitExpr(ctx.rightexpr).getBoolData());
         }
         return visitChildren(ctx);
     }
 
     @Override
-    public java.lang.Boolean visitVal(PrefixParser.ValContext ctx) {
+    public com.company.Prefix.Data visitVal(PrefixParser.ValContext ctx) {
         if (ctx.TRUE() != null) {
-            return true;
+            return dataFactory.newData(true);
         } else if (ctx.FALSE() != null) {
-            return false;
+            return dataFactory.newData(false);
         } else {
             System.out.println("There is an error in visitVal");
-            return false;
+            return null;
         }
     }
 
     @Override
-    public java.lang.Boolean visitNot(PrefixParser.NotContext ctx) {
-        return !visitExpr(ctx.expr());
+    public com.company.Prefix.Data visitNot(PrefixParser.NotContext ctx) {
+        return dataFactory.newData(!(visitExpr(ctx.expr()).getBoolData()));
     }
 
     @Override
-    public java.lang.Boolean visitBooleanvalue(PrefixParser.BooleanvalueContext ctx) {
-
-        if (ctx.variable() != null) {
-            String varName = ctx.variable().value.getText();
-            if (symbolTable.containsKey(varName)) {
-                return symbolTable.get(varName);
-            }
-        }
-
+    public com.company.Prefix.Data visitBooleanvalue(PrefixParser.BooleanvalueContext ctx) {
         return visitChildren(ctx);
     }
 
     @Override
-    public java.lang.Boolean visitIfstatement(PrefixParser.IfstatementContext ctx) {
-        boolean value;
-        if (visitBooleanvalue(ctx.ifsection)) {
+    public com.company.Prefix.Data visitIfstatement(PrefixParser.IfstatementContext ctx) {
+        com.company.Prefix.Data value;
+        if (visitBooleanvalue(ctx.ifsection).getBoolData()) {
             value = visitExpr(ctx.thensection);
         } else {
             value = visitExpr(ctx.elsesection);
@@ -74,25 +67,41 @@ public class PrefixVistorReal<Boolean> extends PrefixBaseVisitor<java.lang.Boole
     }
 
     @Override
-    public java.lang.Boolean visitVariable(PrefixParser.VariableContext ctx) {
+    public com.company.Prefix.Data visitVariabledeclaration(PrefixParser.VariabledeclarationContext ctx) {
 
-        boolean value = visitBooleanvalue(ctx.value);
+        com.company.Prefix.Data value = visitData(ctx.value);
         symbolTable.put(ctx.varname.getText(), value);
 
         return value;
-//        return visitChildren(ctx);
     }
 
     @Override
-    public java.lang.Boolean visitVariablename(PrefixParser.VariablenameContext ctx) {
+    public com.company.Prefix.Data visitVariablename(PrefixParser.VariablenameContext ctx) {
 
         if (symbolTable.containsKey(ctx.varname.getText())) {
-            java.lang.Boolean result = symbolTable.get(ctx.varname.getText());
-            return result;
+            return symbolTable.get(ctx.varname.getText());
         } else {
             System.out.println("Could not find this variable in the symbol table " + ctx.varname.getText());
-            return false;
+            return null;
         }
+    }
+
+    @Override
+    public com.company.Prefix.Data visitInteger(PrefixParser.IntegerContext ctx) {
+        return dataFactory.newData(Integer.parseInt(ctx.intvalue.getText()));
+    }
+
+    @Override
+    public com.company.Prefix.Data visitData(PrefixParser.DataContext ctx) {
+
+        if (ctx.variabledeclaration() != null) {
+            String varName = ctx.variabledeclaration().value.getText();
+            if (symbolTable.containsKey(varName)) {
+                return symbolTable.get(varName);
+            }
+        }
+
+        return visitChildren(ctx);
     }
 
 

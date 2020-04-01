@@ -28,6 +28,18 @@ public class PrefixBaseListener implements PrefixListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterData(PrefixParser.DataContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitData(PrefixParser.DataContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterBooleanvalue(PrefixParser.BooleanvalueContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -100,13 +112,13 @@ public class PrefixBaseListener implements PrefixListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterVariable(PrefixParser.VariableContext ctx) { }
+	@Override public void enterVariabledeclaration(PrefixParser.VariabledeclarationContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitVariable(PrefixParser.VariableContext ctx) { }
+	@Override public void exitVariabledeclaration(PrefixParser.VariabledeclarationContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -119,6 +131,18 @@ public class PrefixBaseListener implements PrefixListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitVariablename(PrefixParser.VariablenameContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterInteger(PrefixParser.IntegerContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitInteger(PrefixParser.IntegerContext ctx) { }
 
 	/**
 	 * {@inheritDoc}
