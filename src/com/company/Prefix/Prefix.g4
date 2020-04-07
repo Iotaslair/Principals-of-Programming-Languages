@@ -12,9 +12,9 @@ IF OPENPAREN ifsection=booleanvalue CLOSEPAREN OPENBRACKET thensection=expr CLOS
 variabledeclaration : OPENPAREN varname=VALIDVARIABLENAMES '=' value=data OPENPAREN run=expr CLOSEPAREN CLOSEPAREN;
 variablename : varname=VALIDVARIABLENAMES;
 integer : intvalue=INTEGER;
-add : left=integer '+' right=integer;
-subtract : left=integer '-' right=integer;
-multiply : left=integer '*' right=integer;
+add : OPENPAREN left=data '+' right=data CLOSEPAREN;
+subtract : OPENPAREN left=data '-' right=data CLOSEPAREN;
+multiply : OPENPAREN left=data '*' right=data CLOSEPAREN;
 FALSE : 'false';
 TRUE : 'true';
 WS : [ \t\r\n]+ -> skip ; // skip spaces, tabs, newlines
@@ -25,4 +25,4 @@ OPENBRACKET : '{';
 CLOSEBRACKET : '}';
 ELSE : 'else';
 VALIDVARIABLENAMES : [a-zA-Z][a-zA-Z0-9]*;
-INTEGER : [0-9]*;
+INTEGER : [0-9]+;

@@ -942,13 +942,15 @@ public class PrefixParser extends Parser {
 	}
 
 	public static class AddContext extends ParserRuleContext {
-		public IntegerContext left;
-		public IntegerContext right;
-		public List<IntegerContext> integer() {
-			return getRuleContexts(IntegerContext.class);
+		public DataContext left;
+		public DataContext right;
+		public TerminalNode OPENPAREN() { return getToken(PrefixParser.OPENPAREN, 0); }
+		public TerminalNode CLOSEPAREN() { return getToken(PrefixParser.CLOSEPAREN, 0); }
+		public List<DataContext> data() {
+			return getRuleContexts(DataContext.class);
 		}
-		public IntegerContext integer(int i) {
-			return getRuleContext(IntegerContext.class,i);
+		public DataContext data(int i) {
+			return getRuleContext(DataContext.class,i);
 		}
 		public AddContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -976,11 +978,15 @@ public class PrefixParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(119);
-			((AddContext)_localctx).left = integer();
+			match(OPENPAREN);
 			setState(120);
-			match(T__4);
+			((AddContext)_localctx).left = data();
 			setState(121);
-			((AddContext)_localctx).right = integer();
+			match(T__4);
+			setState(122);
+			((AddContext)_localctx).right = data();
+			setState(123);
+			match(CLOSEPAREN);
 			}
 		}
 		catch (RecognitionException re) {
@@ -995,13 +1001,15 @@ public class PrefixParser extends Parser {
 	}
 
 	public static class SubtractContext extends ParserRuleContext {
-		public IntegerContext left;
-		public IntegerContext right;
-		public List<IntegerContext> integer() {
-			return getRuleContexts(IntegerContext.class);
+		public DataContext left;
+		public DataContext right;
+		public TerminalNode OPENPAREN() { return getToken(PrefixParser.OPENPAREN, 0); }
+		public TerminalNode CLOSEPAREN() { return getToken(PrefixParser.CLOSEPAREN, 0); }
+		public List<DataContext> data() {
+			return getRuleContexts(DataContext.class);
 		}
-		public IntegerContext integer(int i) {
-			return getRuleContext(IntegerContext.class,i);
+		public DataContext data(int i) {
+			return getRuleContext(DataContext.class,i);
 		}
 		public SubtractContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -1028,12 +1036,16 @@ public class PrefixParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(123);
-			((SubtractContext)_localctx).left = integer();
-			setState(124);
-			match(T__5);
 			setState(125);
-			((SubtractContext)_localctx).right = integer();
+			match(OPENPAREN);
+			setState(126);
+			((SubtractContext)_localctx).left = data();
+			setState(127);
+			match(T__5);
+			setState(128);
+			((SubtractContext)_localctx).right = data();
+			setState(129);
+			match(CLOSEPAREN);
 			}
 		}
 		catch (RecognitionException re) {
@@ -1048,13 +1060,15 @@ public class PrefixParser extends Parser {
 	}
 
 	public static class MultiplyContext extends ParserRuleContext {
-		public IntegerContext left;
-		public IntegerContext right;
-		public List<IntegerContext> integer() {
-			return getRuleContexts(IntegerContext.class);
+		public DataContext left;
+		public DataContext right;
+		public TerminalNode OPENPAREN() { return getToken(PrefixParser.OPENPAREN, 0); }
+		public TerminalNode CLOSEPAREN() { return getToken(PrefixParser.CLOSEPAREN, 0); }
+		public List<DataContext> data() {
+			return getRuleContexts(DataContext.class);
 		}
-		public IntegerContext integer(int i) {
-			return getRuleContext(IntegerContext.class,i);
+		public DataContext data(int i) {
+			return getRuleContext(DataContext.class,i);
 		}
 		public MultiplyContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -1081,12 +1095,16 @@ public class PrefixParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(127);
-			((MultiplyContext)_localctx).left = integer();
-			setState(128);
+			setState(131);
+			match(OPENPAREN);
+			setState(132);
+			((MultiplyContext)_localctx).left = data();
+			setState(133);
 			match(T__6);
-			setState(129);
-			((MultiplyContext)_localctx).right = integer();
+			setState(134);
+			((MultiplyContext)_localctx).right = data();
+			setState(135);
+			match(CLOSEPAREN);
 			}
 		}
 		catch (RecognitionException re) {
@@ -1101,7 +1119,7 @@ public class PrefixParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\24\u0086\4\2\t\2"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\24\u008c\4\2\t\2"+
 		"\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13"+
 		"\t\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\3\2\3\2\5\2#\n\2\3"+
 		"\3\3\3\3\3\3\3\5\3)\n\3\3\4\3\4\3\4\3\4\5\4/\n\4\3\5\3\5\3\5\3\5\5\5\65"+
@@ -1109,30 +1127,33 @@ public class PrefixParser extends Parser {
 		"\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\5\bQ\n\b\3\t\3\t\3\t\3\n\3\n"+
 		"\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3"+
 		"\n\3\n\5\nk\n\n\3\13\3\13\3\13\3\13\3\13\3\13\3\13\3\13\3\13\3\f\3\f\3"+
-		"\r\3\r\3\16\3\16\3\16\3\16\3\17\3\17\3\17\3\17\3\20\3\20\3\20\3\20\3\20"+
-		"\2\2\21\2\4\6\b\n\f\16\20\22\24\26\30\32\34\36\2\3\3\2\n\13\2\u0086\2"+
-		"\"\3\2\2\2\4(\3\2\2\2\6.\3\2\2\2\b\64\3\2\2\2\n\66\3\2\2\2\fC\3\2\2\2"+
-		"\16P\3\2\2\2\20R\3\2\2\2\22j\3\2\2\2\24l\3\2\2\2\26u\3\2\2\2\30w\3\2\2"+
-		"\2\32y\3\2\2\2\34}\3\2\2\2\36\u0081\3\2\2\2 #\5\4\3\2!#\5\22\n\2\" \3"+
-		"\2\2\2\"!\3\2\2\2#\3\3\2\2\2$)\5\6\4\2%)\5\b\5\2&)\5\24\13\2\')\5\26\f"+
-		"\2($\3\2\2\2(%\3\2\2\2(&\3\2\2\2(\'\3\2\2\2)\5\3\2\2\2*/\5\n\6\2+/\5\f"+
-		"\7\2,/\5\16\b\2-/\5\20\t\2.*\3\2\2\2.+\3\2\2\2.,\3\2\2\2.-\3\2\2\2/\7"+
-		"\3\2\2\2\60\65\5\30\r\2\61\65\5\32\16\2\62\65\5\34\17\2\63\65\5\36\20"+
-		"\2\64\60\3\2\2\2\64\61\3\2\2\2\64\62\3\2\2\2\64\63\3\2\2\2\65\t\3\2\2"+
-		"\2\66\67\t\2\2\2\67\13\3\2\2\289\7\3\2\29:\7\r\2\2:;\5\2\2\2;<\7\16\2"+
-		"\2<=\5\2\2\2=D\3\2\2\2>D\3\2\2\2?@\7\3\2\2@A\5\n\6\2AB\5\2\2\2BD\3\2\2"+
-		"\2C8\3\2\2\2C>\3\2\2\2C?\3\2\2\2D\r\3\2\2\2EF\7\4\2\2FG\7\r\2\2GH\5\2"+
-		"\2\2HI\7\16\2\2IJ\5\2\2\2JQ\3\2\2\2KQ\3\2\2\2LM\7\4\2\2MN\5\n\6\2NO\5"+
-		"\2\2\2OQ\3\2\2\2PE\3\2\2\2PK\3\2\2\2PL\3\2\2\2Q\17\3\2\2\2RS\7\5\2\2S"+
-		"T\5\2\2\2T\21\3\2\2\2UV\7\17\2\2VW\7\r\2\2WX\5\6\4\2XY\7\16\2\2YZ\7\20"+
-		"\2\2Z[\5\2\2\2[\\\7\21\2\2\\k\3\2\2\2]k\3\2\2\2^_\7\17\2\2_`\7\r\2\2`"+
-		"a\5\6\4\2ab\7\16\2\2bc\7\20\2\2cd\5\2\2\2de\7\16\2\2ef\7\22\2\2fg\7\20"+
-		"\2\2gh\5\2\2\2hi\7\21\2\2ik\3\2\2\2jU\3\2\2\2j]\3\2\2\2j^\3\2\2\2k\23"+
-		"\3\2\2\2lm\7\r\2\2mn\7\23\2\2no\7\6\2\2op\5\4\3\2pq\7\r\2\2qr\5\2\2\2"+
-		"rs\7\16\2\2st\7\16\2\2t\25\3\2\2\2uv\7\23\2\2v\27\3\2\2\2wx\7\24\2\2x"+
-		"\31\3\2\2\2yz\5\30\r\2z{\7\7\2\2{|\5\30\r\2|\33\3\2\2\2}~\5\30\r\2~\177"+
-		"\7\b\2\2\177\u0080\5\30\r\2\u0080\35\3\2\2\2\u0081\u0082\5\30\r\2\u0082"+
-		"\u0083\7\t\2\2\u0083\u0084\5\30\r\2\u0084\37\3\2\2\2\t\"(.\64CPj";
+		"\r\3\r\3\16\3\16\3\16\3\16\3\16\3\16\3\17\3\17\3\17\3\17\3\17\3\17\3\20"+
+		"\3\20\3\20\3\20\3\20\3\20\3\20\2\2\21\2\4\6\b\n\f\16\20\22\24\26\30\32"+
+		"\34\36\2\3\3\2\n\13\2\u008c\2\"\3\2\2\2\4(\3\2\2\2\6.\3\2\2\2\b\64\3\2"+
+		"\2\2\n\66\3\2\2\2\fC\3\2\2\2\16P\3\2\2\2\20R\3\2\2\2\22j\3\2\2\2\24l\3"+
+		"\2\2\2\26u\3\2\2\2\30w\3\2\2\2\32y\3\2\2\2\34\177\3\2\2\2\36\u0085\3\2"+
+		"\2\2 #\5\4\3\2!#\5\22\n\2\" \3\2\2\2\"!\3\2\2\2#\3\3\2\2\2$)\5\6\4\2%"+
+		")\5\b\5\2&)\5\24\13\2\')\5\26\f\2($\3\2\2\2(%\3\2\2\2(&\3\2\2\2(\'\3\2"+
+		"\2\2)\5\3\2\2\2*/\5\n\6\2+/\5\f\7\2,/\5\16\b\2-/\5\20\t\2.*\3\2\2\2.+"+
+		"\3\2\2\2.,\3\2\2\2.-\3\2\2\2/\7\3\2\2\2\60\65\5\30\r\2\61\65\5\32\16\2"+
+		"\62\65\5\34\17\2\63\65\5\36\20\2\64\60\3\2\2\2\64\61\3\2\2\2\64\62\3\2"+
+		"\2\2\64\63\3\2\2\2\65\t\3\2\2\2\66\67\t\2\2\2\67\13\3\2\2\289\7\3\2\2"+
+		"9:\7\r\2\2:;\5\2\2\2;<\7\16\2\2<=\5\2\2\2=D\3\2\2\2>D\3\2\2\2?@\7\3\2"+
+		"\2@A\5\n\6\2AB\5\2\2\2BD\3\2\2\2C8\3\2\2\2C>\3\2\2\2C?\3\2\2\2D\r\3\2"+
+		"\2\2EF\7\4\2\2FG\7\r\2\2GH\5\2\2\2HI\7\16\2\2IJ\5\2\2\2JQ\3\2\2\2KQ\3"+
+		"\2\2\2LM\7\4\2\2MN\5\n\6\2NO\5\2\2\2OQ\3\2\2\2PE\3\2\2\2PK\3\2\2\2PL\3"+
+		"\2\2\2Q\17\3\2\2\2RS\7\5\2\2ST\5\2\2\2T\21\3\2\2\2UV\7\17\2\2VW\7\r\2"+
+		"\2WX\5\6\4\2XY\7\16\2\2YZ\7\20\2\2Z[\5\2\2\2[\\\7\21\2\2\\k\3\2\2\2]k"+
+		"\3\2\2\2^_\7\17\2\2_`\7\r\2\2`a\5\6\4\2ab\7\16\2\2bc\7\20\2\2cd\5\2\2"+
+		"\2de\7\16\2\2ef\7\22\2\2fg\7\20\2\2gh\5\2\2\2hi\7\21\2\2ik\3\2\2\2jU\3"+
+		"\2\2\2j]\3\2\2\2j^\3\2\2\2k\23\3\2\2\2lm\7\r\2\2mn\7\23\2\2no\7\6\2\2"+
+		"op\5\4\3\2pq\7\r\2\2qr\5\2\2\2rs\7\16\2\2st\7\16\2\2t\25\3\2\2\2uv\7\23"+
+		"\2\2v\27\3\2\2\2wx\7\24\2\2x\31\3\2\2\2yz\7\r\2\2z{\5\4\3\2{|\7\7\2\2"+
+		"|}\5\4\3\2}~\7\16\2\2~\33\3\2\2\2\177\u0080\7\r\2\2\u0080\u0081\5\4\3"+
+		"\2\u0081\u0082\7\b\2\2\u0082\u0083\5\4\3\2\u0083\u0084\7\16\2\2\u0084"+
+		"\35\3\2\2\2\u0085\u0086\7\r\2\2\u0086\u0087\5\4\3\2\u0087\u0088\7\t\2"+
+		"\2\u0088\u0089\5\4\3\2\u0089\u008a\7\16\2\2\u008a\37\3\2\2\2\t\"(.\64"+
+		"CPj";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

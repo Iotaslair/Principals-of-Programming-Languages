@@ -22,7 +22,6 @@ public class PrefixVistorReal<Data> extends PrefixBaseVisitor<com.company.Prefix
         return visitChildren(ctx);
     }
 
-
     @Override
     public com.company.Prefix.Data visitOr(PrefixParser.OrContext ctx) {
         if (ctx.val() != null) {
@@ -71,14 +70,15 @@ public class PrefixVistorReal<Data> extends PrefixBaseVisitor<com.company.Prefix
 
         com.company.Prefix.Data value = visitData(ctx.value);
         symbolTable.put(ctx.varname.getText(), value);
+        System.out.println("Assigned " + ctx.varname.getText() + " to " + value);
 
-        return value;
+        return visitExpr(ctx.run);
     }
 
     @Override
     public com.company.Prefix.Data visitVariablename(PrefixParser.VariablenameContext ctx) {
-
         if (symbolTable.containsKey(ctx.varname.getText())) {
+            System.out.println("Returning value of " + ctx.varname.getText());
             return symbolTable.get(ctx.varname.getText());
         } else {
             System.out.println("Could not find this variable in the symbol table " + ctx.varname.getText());
@@ -93,14 +93,6 @@ public class PrefixVistorReal<Data> extends PrefixBaseVisitor<com.company.Prefix
 
     @Override
     public com.company.Prefix.Data visitData(PrefixParser.DataContext ctx) {
-
-        if (ctx.variabledeclaration() != null) {
-            String varName = ctx.variabledeclaration().value.getText();
-            if (symbolTable.containsKey(varName)) {
-                return symbolTable.get(varName);
-            }
-        }
-
         return visitChildren(ctx);
     }
 
@@ -111,17 +103,17 @@ public class PrefixVistorReal<Data> extends PrefixBaseVisitor<com.company.Prefix
 
     @Override
     public com.company.Prefix.Data visitAdd(PrefixParser.AddContext ctx) {
-        return dataFactory.newData(visitInteger(ctx.left).getIntData() + visitInteger(ctx.right).getIntData());
+        return dataFactory.newData(visitData(ctx.left).getIntData() + visitData(ctx.right).getIntData());
     }
 
     @Override
     public com.company.Prefix.Data visitSubtract(PrefixParser.SubtractContext ctx) {
-        return dataFactory.newData(visitInteger(ctx.left).getIntData() - visitInteger(ctx.right).getIntData());
+        return dataFactory.newData(visitData(ctx.left).getIntData() - visitData(ctx.right).getIntData());
     }
 
     @Override
     public com.company.Prefix.Data visitMultiply(PrefixParser.MultiplyContext ctx) {
-        return dataFactory.newData(visitInteger(ctx.left).getIntData() * visitInteger(ctx.right).getIntData());
+        return dataFactory.newData(visitData(ctx.left).getIntData() * visitData(ctx.right).getIntData());
     }
 
 
