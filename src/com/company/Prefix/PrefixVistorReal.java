@@ -1,10 +1,11 @@
 package com.company.Prefix;
 
 import java.util.HashMap;
+import java.util.Stack;
 
-public class PrefixVistorReal<Data> extends PrefixBaseVisitor<com.company.Prefix.Data> {
+public class PrefixVistorReal extends PrefixBaseVisitor<com.company.Prefix.Data> {
 
-    HashMap<String, com.company.Prefix.Data> symbolTable = new HashMap<String, com.company.Prefix.Data>();
+    HashMap<String, Stack<com.company.Prefix.Data>> symbolTable = new HashMap<String, Stack<com.company.Prefix.Data>>();
     DataFactory dataFactory = new DataFactory();
 
     @Override
@@ -69,7 +70,12 @@ public class PrefixVistorReal<Data> extends PrefixBaseVisitor<com.company.Prefix
     public com.company.Prefix.Data visitVariabledeclaration(PrefixParser.VariabledeclarationContext ctx) {
 
         com.company.Prefix.Data value = visitData(ctx.value);
-        symbolTable.put(ctx.varname.getText(), value);
+        Stack<com.company.Prefix.Data> tempStack = new Stack<>();
+        if(symbolTable.get(ctx.varname.getText()) != null) {
+            tempStack = symbolTable.get(ctx.varname.getText());
+        }
+        tempStack.push(value);
+        symbolTable.put(ctx.varname.getText(), tempStack);
         System.out.println("Assigned " + ctx.varname.getText() + " to " + value);
 
         return visitExpr(ctx.run);
@@ -79,7 +85,7 @@ public class PrefixVistorReal<Data> extends PrefixBaseVisitor<com.company.Prefix
     public com.company.Prefix.Data visitVariablename(PrefixParser.VariablenameContext ctx) {
         if (symbolTable.containsKey(ctx.varname.getText())) {
             System.out.println("Returning value of " + ctx.varname.getText());
-            return symbolTable.get(ctx.varname.getText());
+            return symbolTable.get(ctx.varname.getText()).pop();
         } else {
             System.out.println("Could not find this variable in the symbol table " + ctx.varname.getText());
             return null;
