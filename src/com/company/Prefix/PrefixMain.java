@@ -14,7 +14,7 @@ public class PrefixMain {
         PrefixLexer lexer = new PrefixLexer(CharStreams.fromString(input));
         PrefixParser parser = new PrefixParser(new CommonTokenStream(lexer));
         ParseTree tree = parser.expr();
-        PrefixVistorReal<Boolean> visitor = new PrefixVistorReal<>();
+        PrefixVistorReal visitor = new PrefixVistorReal();
         Data value = visitor.visit(tree);
         System.out.println(input + " : " + value);
     }
