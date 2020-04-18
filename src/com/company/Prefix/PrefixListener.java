@@ -58,36 +58,6 @@ public interface PrefixListener extends ParseTreeListener {
 	 */
 	void exitVal(PrefixParser.ValContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link PrefixParser#or}.
-	 * @param ctx the parse tree
-	 */
-	void enterOr(PrefixParser.OrContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link PrefixParser#or}.
-	 * @param ctx the parse tree
-	 */
-	void exitOr(PrefixParser.OrContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link PrefixParser#and}.
-	 * @param ctx the parse tree
-	 */
-	void enterAnd(PrefixParser.AndContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link PrefixParser#and}.
-	 * @param ctx the parse tree
-	 */
-	void exitAnd(PrefixParser.AndContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link PrefixParser#not}.
-	 * @param ctx the parse tree
-	 */
-	void enterNot(PrefixParser.NotContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link PrefixParser#not}.
-	 * @param ctx the parse tree
-	 */
-	void exitNot(PrefixParser.NotContext ctx);
-	/**
 	 * Enter a parse tree produced by {@link PrefixParser#ifstatement}.
 	 * @param ctx the parse tree
 	 */
@@ -157,4 +127,54 @@ public interface PrefixListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitMultiply(PrefixParser.MultiplyContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link PrefixParser#functiondeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void enterFunctiondeclaration(PrefixParser.FunctiondeclarationContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link PrefixParser#functiondeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void exitFunctiondeclaration(PrefixParser.FunctiondeclarationContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link PrefixParser#functioncall}.
+	 * @param ctx the parse tree
+	 */
+	void enterFunctioncall(PrefixParser.FunctioncallContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link PrefixParser#functioncall}.
+	 * @param ctx the parse tree
+	 */
+	void exitFunctioncall(PrefixParser.FunctioncallContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link PrefixParser#or}.
+	 * @param ctx the parse tree
+	 */
+	void enterOr(PrefixParser.OrContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link PrefixParser#or}.
+	 * @param ctx the parse tree
+	 */
+	void exitOr(PrefixParser.OrContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link PrefixParser#and}.
+	 * @param ctx the parse tree
+	 */
+	void enterAnd(PrefixParser.AndContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link PrefixParser#and}.
+	 * @param ctx the parse tree
+	 */
+	void exitAnd(PrefixParser.AndContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link PrefixParser#not}.
+	 * @param ctx the parse tree
+	 */
+	void enterNot(PrefixParser.NotContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link PrefixParser#not}.
+	 * @param ctx the parse tree
+	 */
+	void exitNot(PrefixParser.NotContext ctx);
 }

@@ -109,17 +109,17 @@ public class PrefixVistorReal extends PrefixBaseVisitor<com.company.Prefix.Data>
 
     @Override
     public com.company.Prefix.Data visitAdd(PrefixParser.AddContext ctx) {
-        return dataFactory.newData(visitData(ctx.left).getIntData() + visitData(ctx.right).getIntData());
+        return dataFactory.newData(visitExpr(ctx.left).getIntData() + visitExpr(ctx.right).getIntData());
     }
 
     @Override
     public com.company.Prefix.Data visitSubtract(PrefixParser.SubtractContext ctx) {
-        return dataFactory.newData(visitData(ctx.left).getIntData() - visitData(ctx.right).getIntData());
+        return dataFactory.newData(visitExpr(ctx.left).getIntData() - visitExpr(ctx.right).getIntData());
     }
 
     @Override
     public com.company.Prefix.Data visitMultiply(PrefixParser.MultiplyContext ctx) {
-        return dataFactory.newData(visitData(ctx.left).getIntData() * visitData(ctx.right).getIntData());
+        return dataFactory.newData(visitExpr(ctx.left).getIntData() * visitExpr(ctx.right).getIntData());
     }
 
 

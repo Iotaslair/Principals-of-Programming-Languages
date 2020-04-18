@@ -1,22 +1,23 @@
 grammar Prefix;
 expr : data | ifstatement;
-data :  variabledeclaration | functiondeclaration | functioncall | integervalue | variablename | booleanvalue;
-booleanvalue : val | or | and | not ;
+data :  functiondeclaration | integervalue | variablename | functioncall | variabledeclaration | booleanvalue;
+booleanvalue : val | not | or | and;
 integervalue : integer | add | subtract | multiply;
 val : FALSE | TRUE;
-or :  OR OPENPAREN leftexpr=expr CLOSEPAREN  rightexpr=expr || OR leftval=val rightexpr=expr;
-and : AND OPENPAREN leftexpr=expr CLOSEPAREN rightexpr=expr || 'and' leftval=val  rightexpr=expr;
-not : NOT expr;
 ifstatement : IF OPENPAREN ifsection=booleanvalue CLOSEPAREN OPENBRACKET thensection=expr CLOSEBRACKET ||
 IF OPENPAREN ifsection=booleanvalue CLOSEPAREN OPENBRACKET thensection=expr CLOSEPAREN ELSE OPENBRACKET elsesection=expr CLOSEBRACKET;
 variabledeclaration : OPENPAREN varname=variablename '=' value=data OPENPAREN run=expr CLOSEPAREN CLOSEPAREN;
 variablename : varname=VALIDVARIABLENAMES;
 integer : intvalue=INTEGER;
-add : OPENPAREN left=data '+' right=data CLOSEPAREN;
-subtract : OPENPAREN left=data '-' right=data CLOSEPAREN;
-multiply : OPENPAREN left=data '*' right=data CLOSEPAREN;
-functiondeclaration : OPENPAREN DEF functionname=variablename variable=variablename OPENPAREN function=expr run=expr CLOSEPAREN;
+add : OPENPAREN left=expr '+' right=expr CLOSEPAREN;
+subtract : OPENPAREN left=expr '-' right=expr CLOSEPAREN;
+multiply : OPENPAREN left=expr '*' right=expr CLOSEPAREN;
+functiondeclaration : OPENPAREN DEF functionname=variablename variable=variablename OPENPAREN functionbody=expr
+run=expr CLOSEPAREN CLOSEPAREN;
 functioncall : CALL functionname=variablename variable=expr;
+or :  OR OPENPAREN leftexpr=expr CLOSEPAREN  rightexpr=expr || OR leftval=val rightexpr=expr;
+and : AND OPENPAREN leftexpr=expr CLOSEPAREN rightexpr=expr || AND leftval=val  rightexpr=expr;
+not : NOT expr;
 OR : 'or';
 AND : 'and';
 NOT : 'not';

@@ -41,24 +41,6 @@ public interface PrefixVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitVal(PrefixParser.ValContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link PrefixParser#or}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitOr(PrefixParser.OrContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link PrefixParser#and}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitAnd(PrefixParser.AndContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link PrefixParser#not}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitNot(PrefixParser.NotContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link PrefixParser#ifstatement}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -100,4 +82,34 @@ public interface PrefixVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitMultiply(PrefixParser.MultiplyContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link PrefixParser#functiondeclaration}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFunctiondeclaration(PrefixParser.FunctiondeclarationContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link PrefixParser#functioncall}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFunctioncall(PrefixParser.FunctioncallContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link PrefixParser#or}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitOr(PrefixParser.OrContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link PrefixParser#and}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAnd(PrefixParser.AndContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link PrefixParser#not}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitNot(PrefixParser.NotContext ctx);
 }
