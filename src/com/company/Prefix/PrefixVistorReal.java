@@ -71,7 +71,7 @@ public class PrefixVistorReal extends PrefixBaseVisitor<com.company.Prefix.Data>
 
         com.company.Prefix.Data value = visitData(ctx.value);
         Stack<com.company.Prefix.Data> tempStack = new Stack<>();
-        if(symbolTable.get(ctx.varname.getText()) != null) {
+        if (symbolTable.get(ctx.varname.getText()) != null) {
             tempStack = symbolTable.get(ctx.varname.getText());
         }
         tempStack.push(value);
@@ -122,5 +122,60 @@ public class PrefixVistorReal extends PrefixBaseVisitor<com.company.Prefix.Data>
         return dataFactory.newData(visitExpr(ctx.left).getIntData() * visitExpr(ctx.right).getIntData());
     }
 
+
+    @Override
+    public com.company.Prefix.Data visitFunctiondeclaration(PrefixParser.FunctiondeclarationContext ctx) {
+        String functionName = ctx.functionname.getText();
+        String variableName = ctx.variable.getText();
+        PrefixParser.ExprContext functionBody = ctx.functionbody;
+        dataFactory.newData(variableName, functionBody);
+        Data function = dataFactory.newData(variableName, functionBody);
+
+        Stack<com.company.Prefix.Data> tempStack = new Stack<>();
+        if (symbolTable.get(ctx.functionname.getText()) != null) {
+            tempStack = symbolTable.get(functionName);
+        }
+        tempStack.push(function);
+        symbolTable.put(functionName, tempStack);
+
+
+        return visitChildren(ctx.run);
+    }
+
+    @Override
+    public com.company.Prefix.Data visitFunctioncall(PrefixParser.FunctioncallContext ctx) {
+
+//        functioncall : CALL functionname=variablename variable=expr;
+        String functionName = ctx.functionname.getText();
+        PrefixParser.ExprContext variable = ctx.variable;
+        if (symbolTable.containsKey(functionName)) {
+            System.out.println("Evaluating " + ctx.functionname.getText() + " with variable " + ctx.variable.getText());
+
+            Stack<com.company.Prefix.Data> dataStack = symbolTable.get(functionName);
+            com.company.Prefix.Data functionObject = dataStack.peek();
+
+
+            //Not sure about this section of code
+            //Used to get a variable if it already exists else evaluate the new variable
+            Stack<com.company.Prefix.Data> tempStack = new Stack<>();
+            if (symbolTable.containsKey(functionObject.getVariableName())) {
+                tempStack = symbolTable.get(visitExpr(variable).getVariableName());
+            } else {
+                tempStack.push(visitExpr(variable));
+            }
+            //creates a temporary variable in the symbol table that we will delete in a bit
+            symbolTable.put(functionObject.getVariableName(), tempStack);
+
+
+            com.company.Prefix.Data output = visitExpr(functionObject.getFunctionBody());
+
+            symbolTable.remove(functionObject.getVariableName());
+
+            return output;
+        } else {
+            System.out.println("Could not find this function in the symbol table " + functionName);
+            return null;
+        }
+    }
 
 }
