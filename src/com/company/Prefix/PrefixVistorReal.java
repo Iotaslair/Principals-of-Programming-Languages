@@ -87,7 +87,7 @@ public class PrefixVistorReal extends PrefixBaseVisitor<com.company.Prefix.Data>
             System.out.println("Returning value of " + ctx.varname.getText());
             return symbolTable.get(ctx.varname.getText()).pop();
         } else {
-            System.out.println("Could not find this variable in the symbol table " + ctx.varname.getText());
+            System.out.println("Could not find " + ctx.varname.getText() + " in the symbol table " + ctx.varname.getText());
             return null;
         }
     }
@@ -144,8 +144,6 @@ public class PrefixVistorReal extends PrefixBaseVisitor<com.company.Prefix.Data>
 
     @Override
     public com.company.Prefix.Data visitFunctioncall(PrefixParser.FunctioncallContext ctx) {
-
-//        functioncall : CALL functionname=variablename variable=expr;
         String functionName = ctx.functionname.getText();
         PrefixParser.ExprContext variable = ctx.variable;
         if (symbolTable.containsKey(functionName)) {
@@ -153,7 +151,6 @@ public class PrefixVistorReal extends PrefixBaseVisitor<com.company.Prefix.Data>
 
             Stack<com.company.Prefix.Data> dataStack = symbolTable.get(functionName);
             com.company.Prefix.Data functionObject = dataStack.peek();
-
 
             //Not sure about this section of code
             //Used to get a variable if it already exists else evaluate the new variable
@@ -166,9 +163,9 @@ public class PrefixVistorReal extends PrefixBaseVisitor<com.company.Prefix.Data>
             //creates a temporary variable in the symbol table that we will delete in a bit
             symbolTable.put(functionObject.getVariableName(), tempStack);
 
-
             com.company.Prefix.Data output = visitExpr(functionObject.getFunctionBody());
 
+            //deleting the variable from before
             symbolTable.remove(functionObject.getVariableName());
 
             return output;
